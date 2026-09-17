@@ -480,3 +480,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Deployment artifacts
+*-deploy.zip
+*-deploy-v*.zip
