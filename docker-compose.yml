@@ -1,0 +1,42 @@
+
+services:
+  postgres-users:
+    image: postgres:15
+    container_name: postgres-users
+    environment:
+      POSTGRES_DB: userservice_db
+      POSTGRES_USER: libraryapp
+      POSTGRES_PASSWORD: LibraryDevPass123
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_users_data:/var/lib/postgresql/data
+
+  postgres-catalog:
+    image: postgres:15
+    container_name: postgres-catalog
+    environment:
+      POSTGRES_DB: catalogservice_db
+      POSTGRES_USER: libraryapp
+      POSTGRES_PASSWORD: LibraryDevPass123
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_catalog_data:/var/lib/postgresql/data
+
+  postgres-reservation:
+    image: postgres:15
+    container_name: postgres-reservation
+    environment:
+      POSTGRES_DB: reservationservice_db
+      POSTGRES_USER: libraryapp
+      POSTGRES_PASSWORD: LibraryDevPass123
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres_reservation_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_users_data:
+  postgres_catalog_data:
+  postgres_reservation_data:
